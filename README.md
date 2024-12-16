@@ -1,4 +1,4 @@
-![Hospital data Analysis](https://github.com/user-attachments/assets/9d1e2139-a6c3-4257-9bad-50307d43fdc2)# Hospital-Data-Analysis
+# Hospital-Data-Analysis
 An analysis of hospital data using SQL and Tableau.
 
 ## OVERVIEW
@@ -294,7 +294,7 @@ ON A.PatientID = P.PatientID;
 
 [Link to the dashboard on Tableau Public](https://public.tableau.com/app/profile/lorna.limberia/viz/Hospitaldataanalysis_17340023125650/HospitalDataAnalysis)
 
-![Uploading Ho[Uploading Hospital data analysis.twb…]()spital data Analysis.png…]()
+![Hospital data Analysis](https://github.com/user-attachments/assets/9d1e2139-a6c3-4257-9bad-50307d43fdc2)
 
 ### INSIGHTS
 
