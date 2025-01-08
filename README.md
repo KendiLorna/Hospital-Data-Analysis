@@ -292,9 +292,7 @@ ON A.PatientID = P.PatientID;
 
 ### DATA VISUALISATION
 
-[Link to the dashboard on Tableau Public](https://public.tableau.com/app/profile/lorna.limberia/viz/Hospitaldataanalysis_17340023125650/HospitalDataAnalysis)
-
-![Hospital data Analysis](https://github.com/user-attachments/assets/9d1e2139-a6c3-4257-9bad-50307d43fdc2)
+![Hospital data analysis dashboard](https://github.com/user-attachments/assets/0b3d72e9-bd53-4129-93ba-888fc145c253)
 
 ### INSIGHTS
 
