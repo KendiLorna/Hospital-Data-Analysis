@@ -1,9 +1,10 @@
 # Hospital-Data-Analysis
-An analysis of hospital data using SQL and Power BI.
+An analysis of hospital data using SQL and Microsoft Power BI.
 
 ## OVERVIEW
 
 The project uses hospital data containing five tables: patient, doctor, appointment, billing, and medical procedure.
+The data was cleaned and explored in MySQL before visualizing it in Microsoft Power BI.
 
 ### OBJECTIVE
 
@@ -11,7 +12,7 @@ There are a few questions I aimed to answer from the analysis:
 
 1. What trends are observed in the appointment dates? and are there specific times of the year when appointments peak?
 
-2. Which is the distribution of doctors per speciality and is there a correlation between a doctor's specialization and the billing amount?
+2. What is the distribution of doctors per specialty and is there a correlation between a doctor's specialization and the billing amount?
 
 3. Which medical procedures are most frequently performed? Is there a particular specialization associated with the procedures? 
 
@@ -300,38 +301,40 @@ ON A.PatientID = P.PatientID;
 
 1. Appointments distribution:
 
-January and April are tied as the peak months and Friday is the peak day overall, whereas March and Saturday is the least
+- January and April are tied as the peak months and Friday is the peak day overall, whereas March and Saturday are the least
 popular month and day for appointments respectively.
 
 2. Doctor Performance:
 
-Radiologists handle the most number of appointments overall which corresponds to a high count of  X-rays,CT scans and MRI scans.
+- Radiologists handle the most number of appointments overall which corresponds to a high count of  X-rays, CT scans, and MRI scans.
+
 ![Specialization and appointments](https://github.com/user-attachments/assets/fcc88d74-3ff3-400e-8c6d-72cf713bad59)
 
-There isn’t a discernible pattern in specialty and billing, but the top two doctors are critical care specialists tied at $ 20,776,809.
+- There isn’t a discernible pattern in specialty and billing, but the top two doctors are critical care specialists tied at $ 20,776,809.
 
-17 is the highest number of observed appointments per doctor while 1 is the lowest at an average of 4 per doctor.
+- 17 is the highest number of observed appointments per doctor while 1 is the lowest at an average of 4 per doctor.
 
 ![Appointments per doctor](https://github.com/user-attachments/assets/a2f6e851-e9e3-40b6-8c0d-a106b3c00aad)
 
-Oncology has the highest number of specialists at 54 and Hospice and Palliative care has the lowest at 26.
+- Oncology has the highest number of specialists at 54 and Hospice and Palliative care has the lowest at 26.
 
 ![Count of doctors by specialization](https://github.com/user-attachments/assets/3561b44c-48dd-4b84-aa92-1461c8602382)
 
 3. Procedure Popularity:
 
-Insulin pump management is the most popular with 25 cases, and the highest revenue at $14,083,138.
+- Insulin pump management is the most popular with 25 cases, and the highest revenue at $14,083,138.
 
 ![Items count and revenue](https://github.com/user-attachments/assets/169c30ed-cfd6-464f-b272-222592468f52)
 
-X-rays, CT scans, and MRI scans are the highest number of billed items which corresponds to the number of radiology appointments.
-![Procedures count](https://github.com/user-attachments/assets/0e8aacc2-ba24-4ea3-9b57-445554b2c929)
+- X-rays, CT scans, and MRI scans are the items that are the most billed, corresponding to the number of radiology appointments.
+ ![Procedures count](https://github.com/user-attachments/assets/0e8aacc2-ba24-4ea3-9b57-445554b2c929)
 
 4. Billing Analysis:
 
-The top-performing doctors per specialty are outliers in their categories contributing to raising the average billing rate per specialization,
-and as a result, most other doctors in the category bill below average.
-Critical care and psychiatry have the top-billing doctors, while ophthalmology and infectious diseases are the bottom two.
+- The top-performing doctors per specialty are outliers in their categories contributing to raising the average billing rate per specialization,
+As a result, most other doctors in the category bill below average.
+
+- Critical care and psychiatry have the top-billing doctors, while ophthalmology and infectious diseases are the bottom two.
 
 ![Doctor total vs speciality average](https://github.com/user-attachments/assets/52953712-d2ff-4a98-9d8f-9a956027d424)
 
