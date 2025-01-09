@@ -1,5 +1,5 @@
 # Hospital-Data-Analysis
-An analysis of hospital data using SQL and Tableau.
+An analysis of hospital data using SQL and Power BI.
 
 ## OVERVIEW
 
@@ -11,13 +11,11 @@ There are a few questions I aimed to answer from the analysis:
 
 1. What trends are observed in the appointment dates? and are there specific times of the year when appointments peak?
 
-2. Which doctors handle the most appointments and is there a correlation between a doctor's specialization and the billing amount?
+2. Which is the distribution of doctors per speciality and is there a correlation between a doctor's specialization and the billing amount?
 
 3. Which medical procedures are most frequently performed? Is there a particular specialization associated with the procedures? 
 
-4. What is the distribution of billing amounts?
-
-5. How does the total billing amount vary by doctor specialization?
+4. How does the total billing amount vary by doctor specialization?
 
 ### DATA
 
@@ -26,7 +24,7 @@ The dataset was obtained from Kaggle
 
 ### TOOLS
 
-MySQL and Tableau Public
+MySQL and Microsoft Power BI
 
 ### DATA CLEANING
 - Concatenated two columns to create the email address column and dropped the irrelevant column from the doctor table.
@@ -71,7 +69,7 @@ DROP COLUMN lastname ;
 ````
 RENAME TABLE `medical procedure` TO medical_procedure;
 ````
-- Found and replaced 22 unnamed items with NULL on the billing table to exclude them from the analysis.
+- Found and dropped 22 unclassified items on the billing table to exclude them from the analysis.
 
 ````
 SELECT *
@@ -81,6 +79,9 @@ WHERE NULLIF(Items, '') IS NULL;
 UPDATE billing
 SET Items = Null
 WHERE NULLIF(Items, '') IS NULL;
+
+DELETE FROM  billing 
+WHERE ITEMS ="Null";
 
 ````
 
@@ -268,7 +269,8 @@ GROUP BY Specialization, DoctorName
 )
 SELECT * FROM Ranking 
 WHERE rank_by_speciality = 1
-ORDER BY doctor_total DESC; -- Gives top billing doctors by specialization over the period 
+ORDER BY doctor_total DESC
+LIMIT 10; -- Gives top 10 doctors by billing over the period 
 ````
 ````
 -- To extract days, months, and years of appointment.
@@ -298,25 +300,40 @@ ON A.PatientID = P.PatientID;
 
 1. Appointments distribution:
 
-November is the peak month and Thursday is the peak day, whereas October and February are the least popular months for appointments.
+January and April are tied as the peak months and Friday is the peak day overall, whereas March and Saturday is the least
+popular month and day for appointments respectively.
 
 2. Doctor Performance:
 
-Radiologists handle the most number of appointments overall and geriatric specialists the least.
+Radiologists handle the most number of appointments overall which corresponds to a high count of  X-rays,CT scans and MRI scans.
+![Specialization and appointments](https://github.com/user-attachments/assets/fcc88d74-3ff3-400e-8c6d-72cf713bad59)
+
 There isn’t a discernible pattern in specialty and billing, but the top two doctors are critical care specialists tied at $ 20,776,809.
+
 17 is the highest number of observed appointments per doctor while 1 is the lowest at an average of 4 per doctor.
+
+![Appointments per doctor](https://github.com/user-attachments/assets/a2f6e851-e9e3-40b6-8c0d-a106b3c00aad)
+
 Oncology has the highest number of specialists at 54 and Hospice and Palliative care has the lowest at 26.
+
+![Count of doctors by specialization](https://github.com/user-attachments/assets/3561b44c-48dd-4b84-aa92-1461c8602382)
 
 3. Procedure Popularity:
 
 Insulin pump management is the most popular with 25 cases, and the highest revenue at $14,083,138.
+
+![Items count and revenue](https://github.com/user-attachments/assets/169c30ed-cfd6-464f-b272-222592468f52)
+
 X-rays, CT scans, and MRI scans are the highest number of billed items which corresponds to the number of radiology appointments.
+![Procedures count](https://github.com/user-attachments/assets/0e8aacc2-ba24-4ea3-9b57-445554b2c929)
 
 4. Billing Analysis:
 
-The top-performing doctors per specialty are outliers contributing to raising the average billing rate per specialization,
+The top-performing doctors per specialty are outliers in their categories contributing to raising the average billing rate per specialization,
 and as a result, most other doctors in the category bill below average.
 Critical care and psychiatry have the top-billing doctors, while ophthalmology and infectious diseases are the bottom two.
+
+![Doctor total vs speciality average](https://github.com/user-attachments/assets/52953712-d2ff-4a98-9d8f-9a956027d424)
 
 ### RECOMMENDATION 
 
